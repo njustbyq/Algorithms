@@ -34,18 +34,18 @@ public:
         return res;
     }
 
-    void dfs(int n, int t, vector<int>& res) {
-        //如果t > n, 直接结束递归
-        if (t > n) {
+    void dfs(int n, int cur_num, vector<int>& res) {
+        //如果cur_num > n, 直接结束递归
+        if (cur_num > n) {
             return;
         }
 
-        res.push_back(t);
-        t *= 10;
+        res.push_back(cur_num);
+        cur_num *= 10;
         //1之后是11～19
         for (int i = 0; i < 10; i++) {
             //1之后传入10, 从10开始分别传入10～19
-            dfs(n, t + i, res);
+            dfs(n, cur_num + i, res);
         }
     }
 };
